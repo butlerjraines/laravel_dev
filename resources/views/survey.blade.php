@@ -3,7 +3,7 @@ module.exports = {
     plugins: [
         require('@tailwindcss/custom-forms'),
     ],
-}
+}vbvcb
 
 -->
 
@@ -116,8 +116,17 @@ module.exports = {
         </div>
     </div>
 
+
+
+
+
+
+
     <!--Divider-->
     <hr class="border-b-2 border-gray-400 my-8 mx-4">
+
+
+
 
     <div class="flex flex-row flex-wrap flex-grow mt-2">
 
@@ -163,6 +172,10 @@ module.exports = {
             <!--/Graph Card-->
         </div>
 
+
+
+
+
         <div class="w-full md:w-1/2 p-3">
             <!--Graph Card-->
             <div class="bg-white border rounded shadow">
@@ -201,28 +214,22 @@ module.exports = {
                 <div class="p-5">
                     <canvas id="chartjs-1" class="chartjs" width="undefined" height="undefined"></canvas>
                     <script>
+                    var marksData = {
+  labels: ["English", "Maths", "Physics", "Chemistry", "Biology", "History"],
+  datasets: [{
+    label: "Student A",
+    backgroundColor: "rgba(200,0,0,0.2)",
+    data: [65, 75, 70, 80, 60, 80]
+  }, {
+    label: "Student B",
+    backgroundColor: "rgba(0,0,200,0.2)",
+    data: [54, 65, 60, 70, 70, 75]
+  }]
+};
                     new Chart(document.getElementById("chartjs-1"), {
-                        "type": "bar",
-                        "data": {
-                            "labels": ["January", "February", "March", "April", "May", "June", "July"],
-                            "datasets": [{
-                                "label": "Likes",
-                                "data": [65, 59, 80, 81, 56, 55, 40],
-                                "fill": false,
-                                "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
-                                "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
-                                "borderWidth": 1
-                            }]
-                        },
-                        "options": {
-                            "scales": {
-                                "yAxes": [{
-                                    "ticks": {
-                                        "beginAtZero": true
-                                    }
-                                }]
-                            }
-                        }
+                      type: 'radar',
+    data: marksData,
+    //options: chartOptions
                     });
                     </script>
                 </div>
@@ -254,6 +261,8 @@ module.exports = {
             </div>
             <!--/Graph Card-->
         </div>
+
+        
 
         <div class="w-full md:w-1/2 xl:w-1/3 p-3">
             <!--Template Card-->
@@ -300,6 +309,42 @@ module.exports = {
                 </div>
             </div>
             <!--/table Card-->
+        </div>
+
+        
+        <!--Wide Panel -->
+        <div class="w-full p-3">
+            <!--Table Card-->
+            <div class="bg-white border rounded shadow">
+                <div class="border-b p-3">
+                    <h5 class="font-bold uppercase text-gray-600">Table</h5>
+                </div>
+                <div class="p-5">
+                    <table class="w-full p-5 text-gray-700">
+                        <thead>
+                            <tr>
+                                <th class="text-left text-blue-900">Name</th>
+                                <th class="text-left text-blue-900">Side</th>
+                                <th class="text-left text-blue-900">Role</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        @foreach($results as $result)
+                            <tr>
+                                <td>{{$result->score_connective}}</td>
+                                <td>{{$result}}</td>
+                                <td>{{$result}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    <p class="py-2"><a href="#">{{$results[0]->score_connective}}</a></p>
+
+                </div>
+            </div>
+            <!--/wide Panel-->
         </div>
 
 
