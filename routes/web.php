@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SurveyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -38,3 +38,10 @@ Route::get('users', function () {
 Route::get('user/{id}', function ($id) {
   return 'User '.$id;
 });
+
+//Route::get('surveys', 'SurveyController@index');
+Route::get('surveys', [SurveyController::class, 'index']);
+//Route::get('surveys', function()  {
+  //return view('survey');
+  //return 'hi';
+//});
